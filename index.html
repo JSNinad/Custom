@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7efe6" />
+  <meta name="description" content="Wedding invitation — Radhika & Satheesha — Sunday, 15th November 2026" />
+  <title>Radhika & Satheesha — Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&family=Cormorant+Infant:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Continuous petal canvas -->
+  <canvas id="petal-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating music control -->
+  <button type="button" id="music-toggle" class="music-toggle" aria-label="Play music" hidden>
+    <svg class="icon-music" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path fill="currentColor" d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+    </svg>
+    <svg class="icon-mute" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <path fill="currentColor" d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6zm8.11 14.54-1.41 1.41L3.41 3.66 4.83 2.24l15.28 15.3z"/>
+    </svg>
+  </button>
+
+  <audio id="wedding-audio" src="assets/music/wedding.mp3" loop preload="none"></audio>
+
+  <!-- ========== SECTION 1: OPENING COVER ========== -->
+  <section id="opening" class="opening" aria-label="Open invitation">
+    <div class="opening__bg" style="background-image: url('assets/images/cover-illustration.jpg')"></div>
+    <div class="opening__wash"></div>
+    <div class="opening__garlands" aria-hidden="true"></div>
+
+    <div class="opening__content">
+      <p class="opening__mantra reveal-on-open" data-delay="0">॥ Om Sri Sadashivaaya Namaha ॥</p>
+      <p class="opening__mantra opening__mantra--second reveal-on-open" data-delay="1">॥ Om Sri Kuladevatha Prasanna ॥</p>
+
+      <p class="opening__blessing reveal-on-open" data-delay="2">With the blessings of Almighty<br />and our beloved elders</p>
+
+      <div class="opening__names">
+        <h1 class="name name--bride" id="name-bride">Radhika</h1>
+        <span class="name__amp" id="name-amp">&amp;</span>
+        <h1 class="name name--groom" id="name-groom">Satheesha</h1>
+      </div>
+
+      <p class="opening__date" id="opening-date">Sunday, 15th November 2026</p>
+
+      <button type="button" id="open-invite" class="open-btn" aria-label="Touch to open invitation">
+        <span class="open-btn__seal">
+          <span class="open-btn__initials">R &amp; S</span>
+        </span>
+        <span class="open-btn__label">Touch to Open</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Main invitation (revealed after open) -->
+  <main id="invitation" class="invitation" hidden>
+
+    <!-- ========== SECTION 2: WELCOME ========== -->
+    <section class="section section--welcome" id="welcome" data-animate>
+      <img class="deco-corner deco-corner--tl" src="assets/images/floral-corner.png" alt="" loading="lazy" />
+      <img class="deco-corner deco-corner--br" src="assets/images/floral-corner.png" alt="" loading="lazy" />
+
+      <p class="eyebrow anim-item">The Wedding Invitation</p>
+      <p class="invite-text anim-item">
+        With the blessings of Almighty and our beloved elders,
+        we are pleased to invite you, along with your family &amp; friends,
+        to grace the auspicious occasion of the wedding of our beloved daughter
+      </p>
+
+      <div class="couple anim-item">
+        <div class="couple__person">
+          <h2 class="couple__name">Chi. Sou. Radhika</h2>
+          <p class="couple__detail">D/o. Sri Rajakumar Kurumugiji</p>
+        </div>
+        <p class="couple__with">with</p>
+        <div class="couple__person">
+          <h2 class="couple__name">Chi. Satheesha D.</h2>
+          <p class="couple__detail">
+            S/o. Smt. Sujatha &amp; Sri Balakrishna Nair<br />
+            Deraje House, Aivarmadu, Sullia<br />
+            N/o. Prathap Nair Muniyoor
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 3: HERO ILLUSTRATION ========== -->
+    <section class="section section--hero-art" id="hero-art" data-animate>
+      <div class="hero-art">
+        <img
+          class="hero-art__img parallax-img"
+          src="assets/images/temple-garden.jpg"
+          alt="Illustrated temple garden wedding scene"
+          loading="lazy"
+        />
+        <div class="hero-art__caption anim-item">
+          <span class="script">Together in Blessings</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 4: COUNTDOWN ========== -->
+    <section class="section section--countdown" id="countdown" data-animate>
+      <p class="eyebrow anim-item">Save the Date</p>
+      <h2 class="section-title script anim-item">15th November 2026</h2>
+      <p class="muhurtham anim-item">Muhurtham · 9:25 AM — 10:15 AM</p>
+
+      <div class="countdown anim-item" id="countdown-timer" role="timer" aria-live="polite">
+        <div class="countdown__unit">
+          <span class="countdown__num" data-unit="days">00</span>
+          <span class="countdown__label">Days</span>
+        </div>
+        <div class="countdown__divider" aria-hidden="true"></div>
+        <div class="countdown__unit">
+          <span class="countdown__num" data-unit="hours">00</span>
+          <span class="countdown__label">Hours</span>
+        </div>
+        <div class="countdown__divider" aria-hidden="true"></div>
+        <div class="countdown__unit">
+          <span class="countdown__num" data-unit="minutes">00</span>
+          <span class="countdown__label">Minutes</span>
+        </div>
+        <div class="countdown__divider" aria-hidden="true"></div>
+        <div class="countdown__unit">
+          <span class="countdown__num" data-unit="seconds">00</span>
+          <span class="countdown__label">Seconds</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 5: EVENTS ========== -->
+    <section class="section section--events" id="events" data-animate>
+      <p class="eyebrow anim-item">The Auspicious Occasion</p>
+      <h2 class="section-title script anim-item">Wedding Ceremony</h2>
+
+      <article class="event-card anim-item">
+        <img class="event-card__frame" src="assets/images/decorative-frame.jpg" alt="" loading="lazy" />
+        <div class="event-card__body">
+          <h3 class="event-card__title">Wedding</h3>
+          <p class="event-card__line">Sunday, 15th November 2026</p>
+          <p class="event-card__label">Muhurtham</p>
+          <p class="event-card__line">9:25 AM — 10:15 AM</p>
+          <div class="event-card__rule" aria-hidden="true"></div>
+          <p class="event-card__venue">Sri Sadashiva Temple</p>
+          <p class="event-card__place">Kiriyadi, Ujire</p>
+        </div>
+      </article>
+    </section>
+
+    <!-- ========== SECTION 6: VENUE ========== -->
+    <section class="section section--venue" id="venue" data-animate>
+      <p class="eyebrow anim-item">Where We Celebrate</p>
+      <h2 class="section-title script anim-item">The Venue</h2>
+
+      <div class="venue anim-item">
+        <img class="venue__art" src="assets/images/temple-garden.jpg" alt="Venue illustration" loading="lazy" />
+        <div class="venue__info">
+          <h3 class="venue__name">Sri Sadashiva Temple</h3>
+          <p class="venue__address">Kiriyadi, Ujire</p>
+          <a
+            class="btn-maps"
+            href="https://www.google.com/maps/search/?api=1&amp;query=Sri+Sadashiva+Temple+Kiriyadi+Ujire"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Location
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 7: SCRATCH / REVEAL ========== -->
+    <section class="section section--scratch" id="scratch" data-animate>
+      <p class="eyebrow anim-item">A Little Surprise</p>
+      <h2 class="section-title script anim-item">Scratch to Reveal</h2>
+
+      <div class="scratch-wrap anim-item">
+        <div class="scratch-card" id="scratch-card">
+          <div class="scratch-reveal" id="scratch-reveal">
+            <p class="scratch-reveal__main">You Are Invited</p>
+            <p class="scratch-reveal__sub">With love,<br />Radhika &amp; Satheesha</p>
+          </div>
+          <canvas id="scratch-canvas" aria-label="Scratch here to reveal"></canvas>
+          <p class="scratch-hint" id="scratch-hint">Scratch Here</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 8: GALLERY ========== -->
+    <section class="section section--gallery" id="gallery" data-animate>
+      <p class="eyebrow anim-item">Cherished Moments</p>
+      <h2 class="section-title script anim-item">Our Gallery</h2>
+      <p class="gallery-note anim-item">Replace these placeholders with your photos later.</p>
+
+      <div class="gallery">
+        <figure class="gallery__item anim-item">
+          <img src="assets/images/photo-01.jpg" alt="Memory 1" loading="lazy" />
+        </figure>
+        <figure class="gallery__item anim-item">
+          <img src="assets/images/photo-02.jpg" alt="Memory 2" loading="lazy" />
+        </figure>
+        <figure class="gallery__item anim-item">
+          <img src="assets/images/photo-03.jpg" alt="Memory 3" loading="lazy" />
+        </figure>
+        <figure class="gallery__item anim-item">
+          <img src="assets/images/photo-04.jpg" alt="Memory 4" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ========== SECTION 9: THANK YOU ========== -->
+    <section class="section section--thanks" id="thanks" data-animate>
+      <p class="eyebrow anim-item">With Gratitude</p>
+      <h2 class="section-title script anim-item">Awaiting your presence</h2>
+
+      <div class="thanks-names anim-item">
+        <span class="name name--bride">Radhika</span>
+        <span class="name__amp">&amp;</span>
+        <span class="name name--groom">Satheesha</span>
+      </div>
+
+      <div class="hosts anim-item">
+        <p class="hosts__names">Smt. Parameshwari &amp; Sri Appu Nair &amp; Family</p>
+        <p class="hosts__address">
+          Shivakripa Nilaya House,<br />
+          Kiriyadi, Ujire
+        </p>
+        <p class="hosts__phone">
+          <a href="tel:+919448737940">Mob: 9448737940</a>
+        </p>
+      </div>
+
+      <p class="compliments anim-item">
+        With best compliments from:<br />
+        Relatives &amp; Friends
+      </p>
+
+      <p class="closing-mantra anim-item">॥ Om Sri Sadashivaaya Namaha ॥</p>
+    </section>
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/scratch.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
