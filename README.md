@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Radhika & Satheesha — Wedding Invitation
 
 Premium mobile-first digital wedding invitation (static site).
@@ -67,3 +68,6 @@ If `wedding.mp3` is missing, the site still works; the music button simply will 
 ## Deploy
 
 Upload the entire `wedding-invitation` folder to any static host (Netlify, Vercel, GitHub Pages, S3, etc.). No backend required.
+=======
+# Custom
+>>>>>>> 3c6d9756e9c04f36e762e20f2e8c1e7152a89ab7
